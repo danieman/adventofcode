@@ -24,7 +24,7 @@ def fix_update(update, rules):
 with open("input.txt", "r") as f:
     rules, updates = f.read().split("\n\n")
 
-updates = [row.strip().split(",") for row in updates.splitlines()]
+updates = [row.split(",") for row in updates.splitlines()]
 rulebook = defaultdict(list)
 for rule in rules.splitlines():
     first, last = rule.split("|")
