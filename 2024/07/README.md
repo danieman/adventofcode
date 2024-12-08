@@ -1,0 +1,5 @@
+# Description of the different solutions
+
+* The naïve bruteforce solution is called `bruteforce.py`. It simply uses `itertools.product` to generate all possible combinations of operators for the given sequence, and tries them all. This takes about 11 seconds on my old laptop.
+* The slightly better solution, called `recursive.py`, implements a recursive approach, where the `calibrate` function branches out into two or three recursive calls, one for each of the possible operators. This solution takes about 3 seconds on my old laptop.
+* The best solution I could come up with, is `backwards.py`. It is a twist of the aforementioned `recursive.py`, where I always consider the last value in the `values` array. If `result` doesn't end with the digit(s) `values[-1]`, there's no reason to continue down that branch, just cut it off and return False. Likewise, if `result` isn't divisible by `values[-1]`, just return False. This results in some really nasty-looking str-int-conversions, but saves ***a lot*** of time! This runs in about 25 ***milliseconds*** on my old laptop. It's ugly, but I'm proud of it.
